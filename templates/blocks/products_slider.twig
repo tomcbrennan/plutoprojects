@@ -1,0 +1,35 @@
+<section class="products-slider-section container max-md:pt-12 pb-24 lg:pb-36 2xl:pb-48">
+        <div class="flex max-lg:flex-col lg:items-center gap-6 md:gap-12 2xl:gap-24">
+            <div class="products-slider-content flex flex-col gap-6 duration-500">
+                <h2 data-animate-right class="supertitle text-brandDark">Explore</h2>
+                <h3 data-animate-right class="relative capitalize text-brand md:is-h4">Our <br/>Products</h3>
+                <div data-animate-right class="text-bodyDark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam quasi accusantium deleniti quia cupiditate, aliquid aspernatur illum rem tenetur! Repellat perferendis aliquid fuga inventore ipsam doloremque eligendi non saepe? Perferendis!</div>
+                <a class="button small" href="/products">View all {% include "icons/arrow-right.twig" %}</a>
+            </div>
+            <div class="w-full lg:w-3/4">
+                <div data-animate-left class="products-slider">
+                    <div class="swiper-wrapper !h-[400px] lg:!h-[500px] 2xl:!h-[600px]">
+                        {% for product in products %}
+                            <a href="{{ product.link }}" class="swiper-slide bg-cover bg-center hover-zoom">
+                                <div class="w-full flex flex-col gap-4 items-center h-full">
+                                    {% if product.thumbnail %}
+                                        <div class="relative w-full h-full overflow-hidden">
+                                            {% include 'partial/image.twig' with {
+                                            image: product.thumbnail.src,
+                                            alt: product.thumbnail.alt,
+                                            class: 'object-cover object-center absolute top-0 left-0 w-full h-full'
+                                        } %}
+                                        </div>
+                                    {% else %}
+                                        <div class="bg-slate-300 w-full h-full"></div>
+                                    {% endif %}
+                                    <h4 class="product-title text-bodyDark relative w-full text-center gap-6 font-subheading text-xl pb-4">{{ product.title }}</h4>
+                                </div>
+                            </a>
+                        {% endfor %}
+                    </div>
+                    <div class="swiper-scrollbar !absolute !bottom-[-50px]"></div>
+                </div>
+            </div>
+        </div>
+</section>

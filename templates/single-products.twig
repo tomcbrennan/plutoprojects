@@ -1,0 +1,86 @@
+{% extends "base.twig" %}
+
+{% block hero %}
+    <section class="min-h-[450px] 2xl:min-h-[800px] pt-24 relative flex items-center">
+        {% if post.banner_background %}
+            {% include 'partial/image.twig' with {
+                image: Image(post.banner_background).src,
+                alt: post.banner_background.alt,
+                class: 'object-cover object-center absolute top-0 left-0 w-full h-full pointer-events-none'
+            } %}
+        {% else %}
+            <div class="bg-[#DDDDDD] absolute top-0 left-0 w-full h-full"></div>
+        {% endif %}
+        <div class="container flex flex-col gap-2 items-center justify-center text-center h-full relative z-10">
+            <h1 class="text-brandLight">{{ post.title }}</h1>
+            <h2 class="supertitle opacity-50 !text-brandLight">Products / {{ post.title }}</h2>
+        </div>
+    </section>
+{% endblock %}
+
+{% block content %}
+    <section class="container pt-10 md:pt-28">
+        <div class="flex max-lg:flex-col gap-10 md:gap-20">
+            {% include "partial/product-gallery.twig" %}
+            <div data-animate-left class="w-full">
+                <div class="w-full flex flex-col gap-8 pb-8">
+                    <h3 class="supertitle">Pluto Projects</h3>
+                    <h4 class="text-brand">{{ post.title }}</h4>
+                    <span class="is-h6">From ${{ post.price }}</span>
+                    <div>
+                        {% if post.description %}
+                            {{ post.description | wpautop }}
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="accordion border-b-footerGrey border-b">
+                    {% if post.features %}
+                        <h5 class="accordion-header">Features {% include "icons/arrow-down.twig" %}</h5>
+                        <div class="accordion-content">
+                            <div class="accordion-inner">{{ post.features }}</div>
+                        </div>
+                    {% endif %}
+                    {% if post.dimensions %}
+                        <h5 class="accordion-header">Dimensions {% include "icons/arrow-down.twig" %}</h5>
+                        <div class="accordion-content">
+                            <div class="accordion-inner">{{ post.dimensions | wpautop }}</div>
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="py-10 flex flex-col gap-6">
+                    <h5 class="supertitle font-bold">Customise</h5>
+                        {{ function('do_shortcode', '[gravityform id="2" title="false" description="false" ajax="true"]') }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="container">
+        <div class="flex flex-col gap-20 items-center mt-20">
+            <h5 class="text-brand font-medium">You may also like</h5>
+                {% if related_products %}
+                    <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+                        {% for product in related_products %}
+                            <a data-animate-left href="{{ product.link }}" class="bg-cover bg-center hover-zoom">
+                                <div class="w-full flex flex-col gap-4 items-center h-full">
+                                    {% if product.thumbnail %}
+                                        <div class="relative w-full h-full overflow-hidden">
+                                            {% include 'partial/image.twig' with {
+                                            image: product.thumbnail.src,
+                                            alt: product.thumbnail.alt,
+                                            class: 'object-cover object-center aspect-5/7 w-full h-full'
+                                        } %}
+                                        </div>
+                                    {% else %}
+                                        <div class="bg-slate-300 w-full h-full aspect-5/7"></div>
+                                    {% endif %}
+                                    <h4 class="product-title text-bodyDark relative w-full text-center gap-6 font-subheading text-base md:text-lg xl:text-xl pb-4">{{ product.title }}</h4>
+                                </div>
+                            </a>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </section>
+        </div>
+    </section>
+{% endblock %}

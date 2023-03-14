@@ -1,0 +1,29 @@
+.tabs {
+    @apply md:border-b border-b-brandDark flex items-center justify-between mb-8 max-md:flex-col;
+}
+
+.tab {
+    @apply py-4 supertitle font-semibold !text-sm cursor-pointer flex w-full items-center justify-center duration-300;
+}
+
+.tab-content {
+    @apply hidden;
+}
+
+.tab-content.active {
+    @apply block;
+    animation: fade-in-product 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.3s both;
+}
+
+.tab.active {
+    @apply border-b-2 border-b-brand text-brand;
+}
+
+@keyframes fade-in-product {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+}

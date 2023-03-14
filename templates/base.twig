@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!-- [if lt IE 9]><html class="no-js no-svg ie lt-ie9 lt-ie8 lt-ie7" {{ site.language_attributes }}> <![endif] -->
+<!-- [if IE 9]><html class="no-js no-svg ie ie9 lt-ie9 lt-ie8" {{ site.language_attributes }}> <![endif] -->
+<!-- [if gt IE 9]><! -->
+	<html
+	class="no-js no-svg" {{ site.language_attributes }}> <!-- <![endif] -->
+	{% block html_head_container %}
+		{% include 'html-header.twig' %}
+	{% endblock %}
+	<body class="{{ body_class }}" data-template="base.twig" class="min-h-screen">
+		<a class="skip-link screen-reader-text" href="#content">{{ _e('Skip to content') }}</a>
+		{% block header %}
+			{% include 'partial/header.twig' %}
+		{% endblock %}
+
+		<main class="main">
+			{% block hero %}
+				<section class="min-h-[450px] 2xl:min-h-[800px] pt-16 relative flex items-center">
+					{% if fields.banner_background %}
+						{% include 'partial/image.twig' with {
+							image: Image(fields.banner_background).src,
+							alt: fields.banner_background.alt,
+							class: 'object-cover object-center absolute top-0 left-0 w-full h-full'
+						} %}
+					{% else %}
+						<div class="bg-[#DDDDDD] absolute top-0 left-0 w-full h-full"></div>
+					{% endif %}
+					<div class="container flex flex-col gap-2 items-center justify-center text-center h-full relative z-10">
+						<h1 class="text-brandLight">{{ post.title }}</h1>
+						<h2 class="supertitle opacity-50 !text-brandLight md:!text-xl">Home / {{ post.title }}</h2>
+					</div>
+				</section>
+			{% endblock %}
+
+			<div id="content" role="main">
+				{% block content %}
+					<section class="container py-12 md:py-24">
+						<h2>Content here</h2>
+					</section>
+				{% endblock %}
+			</div>
+			{% block footer %}
+				{% include 'footer.twig' %}
+
+				{{ function('wp_footer') }}
+			{% endblock %}
+		</main>
+
+		{# Extend this to add custom scripts to just one page/block #}
+		{% block scripts %}{% endblock %}
+	</body>
+</html>

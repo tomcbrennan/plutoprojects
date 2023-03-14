@@ -1,0 +1,51 @@
+.gform_wrapper input, select, text {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    @apply !rounded-none;
+}
+
+.gform_wrapper {
+    @apply w-full;
+}
+
+.gform_heading {
+    @apply hidden;
+}
+
+#gform_wrapper_1 {
+    @apply mt-16;
+}
+
+label.gfield_label {
+    @apply font-normal text-brandDark opacity-50 tracking-widest;
+}
+
+.ginput_container input, .ginput_container textarea {
+    @apply border-b border-b-brandDark outline-none;
+}
+
+.gform_wrapper input[type="submit"]{
+    @apply cursor-pointer bg-[#9A5026] !rounded-none uppercase border border-transparent text-white text-lg py-6 font-light px-10 md:px-20 flex items-center justify-center gap-4 tracking-[0.2em] w-full duration-300 hover:gap-8 hover:bg-transparent hover:border-brandDark hover:text-brand;
+}
+
+#gform_wrapper_2 .ginput_container_select {
+    @apply cursor-pointer border border-bodyDark text-lg flex items-center justify-center gap-4 w-full;
+}
+
+#gform_wrapper_2 .ginput_container_select select {
+    @apply uppercase text-bodyDark font-light p-6 tracking-[0.2em] duration-300;
+}
+
+.ginput_container_number {
+    @apply !h-[78px] !w-full !flex;
+}
+
+.ginput_container_number input {
+    @apply border border-brandDark !w-full !h-full !p-6;
+}
+
+.colour-chart {
+    @apply cursor-pointer bg-[#D7C7B0] uppercase border border-transparent text-brandDark text-sm md:text-lg py-6 font-light px-10 flex items-center justify-center gap-4 tracking-[0.2em] w-full duration-300 hover:gap-8;
+}
+

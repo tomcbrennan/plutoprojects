@@ -1,0 +1,25 @@
+.accordion-header {
+    @apply cursor-pointer bg-white border-t border-t-brandDark px-6 py-6 md:py-8 supertitle font-bold flex items-center justify-between hover:bg-brandLight duration-300;
+}
+
+.accordion-header svg {
+    @apply duration-500;
+}
+
+.accordion-header.active {
+    @apply bg-brandLight;
+}
+
+.accordion-header.active svg {
+    @apply rotate-180;
+}
+
+.accordion-content {
+    transition: max-height 0.4s ease;
+    @apply overflow-hidden max-h-0;
+}
+
+.accordion-content > .accordion-inner {
+    @apply p-6 text-bodyDark;
+}
+  

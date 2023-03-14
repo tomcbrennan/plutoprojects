@@ -1,0 +1,25 @@
+<div data-animate-right class="w-full lg:w-1/2">
+    {% for first in post.meta('images')[0:1] %}
+        <div class="featured relative mb-6">
+            {% include 'partial/image.twig' with {
+                image: Image(first.image).src,
+                alt: first.image.alt,
+                class: 'featured-image object-cover object-center aspect-1/1 w-full h-full'
+            } %}
+        </div>
+    {% endfor %}
+    <div class="swiper product-gallery-slider">
+        <div class="swiper-wrapper">
+            {% for item in post.meta('images')[1:] %}
+                <div class="swiper-slide relative cursor-pointer">
+                    {% include 'partial/image.twig' with {
+                        image: Image(item.image).src,
+                        alt: item.image.alt,
+                        class: 'product-gallery-image object-cover object-center aspect-1/1 w-full h-full'
+                    } %}
+                </div>
+            {% endfor %}
+        </div>
+        <div class="swiper-scrollbar !relative mt-10"></div>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+<a data-animate-left href="{{ project.link }}" class="hover-zoom w-full flex flex-col items-center gap-2">
+    {% if project.thumbnail %}
+        <div class="aspect-16/9 sm:aspect-5/7 w-full overflow-hidden">
+            {% include 'partial/image.twig' with {
+                image: project.thumbnail.src,
+                alt: project.thumbnail.alt,
+                class: 'object-cover object-center w-full'
+            } %}
+        </div>
+    {% else %}
+        <div class="bg-[#DDDDDD] w-full aspect-16/9 sm:aspect-5/7"></div>
+    {% endif %}
+    <h3 class="body-dark text-xl font-semibold mt-5 text-center">{{ project.title }}</h3>
+    <span class="text-bodyDark text-center">{{ project.location }}</span>
+</a>

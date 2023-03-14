@@ -1,0 +1,26 @@
+{% extends 'base.twig' %}
+
+{% block hero %}
+	<section class="home-banner h-[650px] lg:h-[100vh] relative pt-16">
+		{% include 'partial/image.twig' with {
+                image: Image(fields.home_banner_background).src,
+                alt: fields.home_banner_background.alt,
+                class: 'object-cover object-center absolute top-0 left-0 w-full h-full pointer-events-none'
+        } %}
+		<div class="px-10 h-full z-10 relative">
+			<div class="flex flex-col gap-4 h-full items-center justify-center text-brandLight uppercase text-center">
+				<h1>{{ fields.home_banner_heading }}</h1>
+				<h2 class="supertitle !text-brandLight">{{ fields.home_banner_subheading }}</h2>
+			</div>
+		</div>
+		{# <div class="absolute bottom-0 left-[50%] translate-x-[-50%] w-[2px] h-[15vh] bg-white opacity-75"></div> #}
+	</section>
+{% endblock %}
+
+{% block content %}
+	{% for block in page_builder %}
+		<div data-block="{{ block.acf_fc_layout }}">
+			{{ include("blocks/" ~ block.acf_fc_layout ~ ".twig", ignore_missing = true) }}
+		</div>
+	{% endfor %}
+{% endblock %}

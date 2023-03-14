@@ -1,0 +1,16 @@
+<a data-animate-in href="{{ product.link }}" class="bg-cover bg-center hover-zoom">
+    <div class="w-full flex flex-col gap-4 items-center h-full">
+        {% if product.thumbnail %}
+            <div class="relative w-full h-full overflow-hidden">
+                {% include 'partial/image.twig' with {
+                image: product.thumbnail.src,
+                alt: product.thumbnail.alt,
+                class: 'object-cover object-center aspect-5/7 w-full h-full'
+            } %}
+            </div>
+        {% else %}
+            <div class="bg-slate-300 w-full h-full aspect-5/7"></div>
+        {% endif %}
+        <h4 class="product-title text-bodyDark relative w-full text-center gap-6 font-subheading text-lg pb-4">{{ product.title }}</h4>
+    </div>
+</a>

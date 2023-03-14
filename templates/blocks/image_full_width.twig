@@ -1,0 +1,7 @@
+<section class="relative h-[500px] md:h-[700px] 2xl:h-[900px]">
+    {% include 'partial/image.twig' with {
+        image: Image(block.image).src,
+        alt: block.image.alt,
+        class: 'object-cover object-center absolute top-0 left-0 w-full h-full'
+    } %}
+</section>

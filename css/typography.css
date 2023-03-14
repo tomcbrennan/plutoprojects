@@ -1,0 +1,95 @@
+html,
+body {
+	@apply font-body;
+}
+
+body {
+	@apply leading-relaxed text-base 2xl:text-lg;
+}
+
+p {
+	@apply text-bodyDark text-base;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	@apply font-display tracking-widest !leading-tight;
+}
+
+h1,
+.is-h1 {
+	@apply uppercase tracking-[0.15em] font-semibold text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl;
+}
+
+h2,
+.is-h2 {
+	@apply text-4xl md:text-5xl 2xl:text-7xl font-medium;
+}
+
+h3,
+.is-h3 {
+	@apply text-3xl md:text-4xl 2xl:text-6xl font-medium;
+}
+
+h4,
+.is-h4 {
+	@apply text-2xl lg:text-3xl 2xl:text-5xl font-medium;
+}
+
+h5,
+.is-h5 {
+	@apply text-xl lg:text-2xl 2xl:text-4xl;
+}
+
+h6,
+.is-h6 {
+	@apply text-base sm:text-lg lg:text-xl 2xl:text-3xl;
+}
+
+.button-outline,
+.is-button-outline {
+	@apply uppercase text-bodyDark text-base py-6 font-light flex px-10 items-center justify-center gap-4 tracking-[0.2em] w-full border border-bodyDark duration-300 hover:bg-brand focus:bg-brand hover:text-white focus:text-white focus:border-transparent hover:border-transparent hover:gap-8;
+}
+
+.button-outline.small,
+.is-button-outline.small {
+	@apply w-fit px-10 md:px-20;
+}
+
+.button.small, .is-button.small {
+	@apply w-fit px-0;
+}
+
+.button,
+.is-button {
+	@apply uppercase text-bodyDark text-base py-3 font-light px-10 md:px-20 flex items-center justify-center gap-4 tracking-[0.2em] w-fit duration-300 hover:gap-8;
+}
+
+.button svg path, .button-outline svg path {
+	@apply duration-300;
+}
+
+.button-outline:hover svg path {
+	@apply fill-white;
+}
+
+#content :is(ol, ul) {
+	@apply ml-6 flex flex-col gap-3;
+}
+
+#content ul li {
+	@apply list-disc;
+}
+
+#content ol li {
+	@apply list-decimal;
+}
+
+.supertitle {
+	@apply text-base tracking-[0.2em] uppercase text-brandDark;
+}
+

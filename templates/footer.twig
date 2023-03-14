@@ -1,0 +1,32 @@
+<footer class="bg-white pb-6 pt-12">
+	<div class="container 2xl:mx-28 border-t border-t-footerGrey pt-12 max-lg:grid flex max-xl:gap-12 justify-between md:grid-cols-2">
+		<div>
+			{% include "icons/logo.twig" %}
+		</div>
+		<div class="footer-links flex flex-col gap-6">
+			<span class="text-brandDark uppercase font-bold tracking-wider">Contact</span>
+			<div class="flex flex-col gap-2 text-footerGrey">
+				<a class="uppercase" href="mailto:{{ options.email }}" target="_blank">{{ options.email }}</a>
+				<a class="uppercase" href="tel:{{ options.phone }}" target="_blank">{{ options.phone }}</a>
+				<div class="uppercase">{{ options.address }}</div>
+			</div>
+		</div>
+		<div class="footer-links flex flex-col gap-6">
+			<span class="text-brandDark uppercase font-bold tracking-wider">Stay in touch</span>
+			<div class="flex flex-col gap-2 text-footerGrey">
+				<a class="uppercase flex items-center gap-3" href="{{ options.instagram }}" target="_blank">{% include "icons/arrow-right-small.twig" %} Instagram</a>
+				<a class="uppercase flex items-center gap-3" href="{{ options.facebook }}" target="_blank">{% include "icons/arrow-right-small.twig" %} Facebook</a>
+				<a class="uppercase flex items-center gap-3" href="{{ options.linkedin }}" target="_blank">{% include "icons/arrow-right-small.twig" %} Linkedin</a>
+			</div>
+		</div>
+		<div class="footer-links flex flex-col gap-2 text-footerGrey">
+			{% for item in menu.get_items %}
+				<a href="{{ item.link }}" class="text-brandDark uppercase font-bold">{{ item.title }}</a>
+			{% endfor %}
+		</div>
+	</div>
+	<div class="max-2xl:container 2xl:mx-28 w-full container mt-12 flex gap-3 max-sm:flex-col sm:items-center justify-between">
+		<p class="uppercase tracking-wider text-sm text-footerGrey opacity-50">&copy; {{ "now"|date("Y") }} PLUTO PROJECTS</p>
+		<a href="https://tomdotcom.au" target="_blank" class="uppercase tracking-wider text-sm text-footerGrey opacity-50">Built by Tom</a>
+	</div>
+</footer>

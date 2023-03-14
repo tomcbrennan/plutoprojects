@@ -1,0 +1,28 @@
+<section class="grid md:grid-cols-5">
+    <div class="bg-brandLight h-full w-full md:col-span-2 flex flex-col gap-10 md:gap-16 py-20 md:py-40 px-6 md:px-12 lg:px-28">
+        <h3 class="text-brand uppercase is-h4">Contact</h3>
+       <div class="flex flex-col gap-3">
+            <p class="supertitle font-semibold">Harley Fry</p>
+            <p class="supertitle font-semibold">Director</p>
+       </div>
+       <div class="flex flex-col gap-3">
+            <a class="supertitle font-semibold flex items-center gap-3 duration-300 hover:gap-5 hover:text-brand" href="mailto:{{ options.email }}" target="_blank">Email Harley {% include "icons/arrow-right-small.twig" %}</a>
+       </div>
+       <div class="flex flex-col gap-3">
+            <a class="supertitle font-semibold flex items-center gap-3 duration-300 hover:gap-5 hover:text-brand" href="tel:{{ options.phone }}" target="_blank">Call Us{% include "icons/arrow-right-small.twig" %}</a>
+       </div>
+       <div class="flex flex-col gap-3">
+            <div class="supertitle font-semibold">{{ options.address }}</div>
+       </div>
+       <div class="flex flex-col gap-3">
+            <a class="supertitle uppercase flex items-center gap-3 !text-sm" href="{{ options.instagram }}" target="_blank">{% include "icons/arrow-right-small.twig" %} Instagram</a>
+			<a class="supertitle uppercase flex items-center gap-3 !text-sm" href="{{ options.facebook }}" target="_blank">{% include "icons/arrow-right-small.twig" %} Facebook</a>
+			<a class="supertitle uppercase flex items-center gap-3 !text-sm" href="{{ options.linkedin }}" target="_blank">{% include "icons/arrow-right-small.twig" %} Linkedin</a>
+       </div>
+    </div>
+    <div class="md:col-span-3 h-full w-full flex flex-col items-center gap-6 md:gap-10 py-20 md:py-40 px-6 md:px-12 lg:px-28">
+        <h3 class="text-brand text-center">Get in touch</h3>
+        <p class="text-center">For Inquiries regarding our products and services you can also contact us by filling out all of the required fields in the form below.</p>
+        {{ function('do_shortcode', '[gravityform id="1" title="false" description="false" ajax="true"]') }}
+    </div>
+</section>

@@ -1,0 +1,57 @@
+<section class="grid lg:grid-cols-2">
+    {% if block.image_position == 'left' %}
+        <div class="max-lg:order-2 relative max-lg:h-80">
+            {% if block.image %}
+                {% include 'partial/image.twig' with {
+                    image: Image(block.image).src,
+                    alt: block.image.alt,
+                    class: 'object-cover object-center absolute top-0 left-0 w-full h-full pointer-events-none'
+                } %}
+            {% endif %}
+        </div>
+        <div class="max-lg:order-1 px-6 py-12 lg:px-32 lg:py-32 flex flex-col gap-6 md:gap-10 bg-brandLight">
+            {% if block.supertitle %}
+                <h2 data-animate-down class="supertitle text-brandDark">{{ block.supertitle }}</h2>
+            {% endif %}
+            {% if block.heading %}
+                <h3 data-animate-down class="text-brand capitalize">{{ block.heading }}</h3>
+            {% endif %}
+            {% if block.content %}
+                <div data-animate-down class="text-bodyDark">{{ block.content }}</div>
+            {% endif %}
+            {% if block.button %}
+                <a class="button-outline" href="{{ block.button.url }}">{{ block.button.title }}{% include "icons/arrow-right.twig" %}</a>
+            {% endif %}
+            {% if block.bottom_content %}
+                <div data-animate-down class="text-bodyDark">{{ block.bottom_content }}</div>
+            {% endif %}
+        </div>
+    {% elseif block.image_position == 'right' %}
+        <div class="px-6 py-12 lg:px-20 lg:py-32 flex flex-col gap-6 md:gap-10 bg-brandLight">
+            {% if block.supertitle %}
+                <h2 data-animate-down class="supertitle text-brandDark">{{ block.supertitle }}</h2>
+            {% endif %}
+            {% if block.heading %}
+                <h3 data-animate-down class="text-brand capitalize">{{ block.heading }}</h3>
+            {% endif %}
+            {% if block.content %}
+                <div data-animate-down class="text-bodyDark">{{ block.content }}</div>
+            {% endif %}
+            {% if block.button %}
+                <a class="button-outline" href="{{ block.button.url }}">{{ block.button.title }}{% include "icons/arrow-right.twig" %}</a>
+            {% endif %}
+            {% if block.bottom_content %}
+                <div data-animate-down class="text-bodyDark">{{ block.bottom_content }}</div>
+            {% endif %}
+        </div>
+        <div class="relative max-lg:h-80">
+            {% if block.image %}
+                {% include 'partial/image.twig' with {
+                    image: Image(block.image).src,
+                    alt: block.image.alt,
+                    class: 'object-cover object-center absolute top-0 left-0 w-full h-full'
+                } %}
+            {% endif %}
+        </div>
+    {% endif %}
+</section>

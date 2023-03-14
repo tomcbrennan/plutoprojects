@@ -1,0 +1,63 @@
+{% extends "base.twig" %}
+
+{% block hero %}
+    <section class="min-h-[450px] 2xl:min-h-[800px] pt-24 relative flex items-center">
+        {% if post.banner_background %}
+            {% include 'partial/image.twig' with {
+                image: Image(post.banner_background).src,
+                alt: post.banner_background.alt,
+                class: 'object-cover object-center absolute top-0 left-0 w-full h-full pointer-events-none'
+            } %}
+        {% else %}
+            <div class="bg-[#DDDDDD] absolute top-0 left-0 w-full h-full"></div>
+        {% endif %}
+        <div class="container flex flex-col gap-2 items-center justify-center text-center h-full relative z-10">
+            <h1 class="text-brandLight">{{ post.title }}</h1>
+            <h2 class="supertitle opacity-50 !text-brandLight md:!text-xl">Projects / {{ post.title }}</h2>
+        </div>
+    </section>
+{% endblock %}
+
+{% block content %}
+    <section class="flex max-md:flex-col">
+        <div class="md:sticky top-16 h-full w-full flex flex-col gap-6 md:gap-10 py-20 px-6 md:px-28">
+            <h2 class="supertitle">Details</h2>
+            <div class="relative">
+                <h3 class="text-brand">The Brief</h3>
+            </div>
+            {% if post.brief %}
+                {{ post.brief | wpautop }}
+            {% endif %}
+            <div class="flex flex-col gap-2">
+                {% if post.location %}
+                    <p><strong>Location - </strong> {{ post.location }}</p>
+                {% endif %}
+                {% if post.architect %}
+                    <p><strong>Architect - </strong> {{ post.architect }}</p>
+                {% endif %}
+                {% if post.builder %}
+                    <p><strong>Builder - </strong> {{ post.builder }}</p>
+                {% endif %}
+            </div>
+        </div>
+        {% if post.gallery %}
+            <div class="project-gallery">
+                {% for item in post.meta('gallery') %}
+                    {% include 'partial/image.twig' with {
+                        image: Image(item.gallery_image).src,
+                        alt: item.gallery_image.alt,
+                        class: 'project-image object-cover object-center w-full h-full'
+                    } %}
+                {% endfor %}
+            </div>
+        {% endif %}
+    </section>
+    <section class="container mt-12 sm:mt-20">
+        <div class="flex max-sm:flex-col-reverse gap-10 items-center justify-between">
+            <a href="/projects" class="supertitle supertitle flex items-center gap-3 duration-300 md:hover:gap-5">{% include "icons/view-all.twig" %} View All</a>
+            {% if post.next.link %}
+                <a href="{{ post.next.link }}" class="supertitle flex items-center gap-3 duration-300 md:hover:gap-5">Next Project {% include "icons/arrow-right-small.twig" %}</a>
+            {% endif %}
+        </div>
+    </section>
+{% endblock %}

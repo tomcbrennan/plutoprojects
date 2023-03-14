@@ -1,0 +1,67 @@
+<section class="container mt-8 md:mt-16">
+    <div class="tabs">
+        <div class="tab" data-tab="all_products">View all</div>
+        {% if benches %}
+            <div class="tab" data-tab="benches">Benches</div>
+        {% endif %}
+        {% if pots %}
+            <div class="tab" data-tab="pots">Pots</div>
+        {% endif %}
+        {% if steps %}
+            <div class="tab" data-tab="steps">Steps</div>
+        {% endif %}
+        {% if decor %}
+            <div class="tab" data-tab="decor">Decor</div>
+        {% endif %}
+    </div>
+
+    {% if all_products %}
+        <div class="tab-content" data-tab="all_products">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+                {% for product in all_products %}
+                    {% include "tease-product.twig" %}
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+
+    {% if benches %}
+        <div class="tab-content" data-tab="benches">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+                {% for product in benches %}
+                    {% include "tease-product.twig" %}
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+
+    {% if pots %}
+        <div class="tab-content" data-tab="pots">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+                {% for product in pots %}
+                    {% include "tease-product.twig" %}
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+
+    {% if steps %}
+        <div class="tab-content" data-tab="steps">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+                {% for product in steps %}
+                    {% include "tease-product.twig" %}
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+
+    {% if decor %}
+        <div class="tab-content" data-tab="decor">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+                {% for product in decor %}
+                    {% include "tease-product.twig" %}
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+</section>

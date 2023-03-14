@@ -1,0 +1,18 @@
+<section class="relative">
+    <div class="absolute top-0 left-0 w-full h-full bg-brandLight bg-opacity-60 lg:hidden z-[1]"></div>
+    {% if block.image %}
+        {% include 'partial/image.twig' with {
+            image: Image(block.image).src,
+            alt: block.image.alt,
+            class: 'object-cover object-center absolute top-0 left-0 w-full h-full pointer-events-none'
+        } %}
+    {% endif %}
+    <div class="container pt-24 lg:pt-36 2xl:pt-48 pb-48 lg:pb-60 2xl:pb-72 flex justify-start items-start z-10 relative">
+        <div class="flex flex-col items-start gap-6 md:gap-10 max-w-xl">
+            <h2 data-animate-down class="supertitle text-brandDark">{{ block.supertitle }}</h2>
+            <h3 data-animate-down class="capitalize text-brand">{{ block.heading }}</h3>
+            <div data-animate-down class="text-bodyDark">{{ block.content }}</div>
+            <a class="button-outline small" href="{{ block.button.url }}">{{ block.button.title }}{% include "icons/arrow-right.twig" %}</a>
+        </div>
+    </div>
+</section>
