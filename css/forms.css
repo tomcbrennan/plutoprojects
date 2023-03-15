@@ -26,7 +26,7 @@ label.gfield_label {
 }
 
 .gform_wrapper input[type="submit"]{
-    @apply cursor-pointer bg-[#9A5026] !rounded-none uppercase border border-transparent text-white text-lg py-6 font-light px-10 md:px-20 flex items-center justify-center gap-4 tracking-[0.2em] w-full duration-300 hover:gap-8 hover:bg-transparent hover:border-brandDark hover:text-brand;
+    @apply cursor-pointer bg-[#9A5026] !rounded-none uppercase text-white text-lg py-6 font-light px-10 md:px-20 flex items-center justify-center gap-4 tracking-[0.2em] w-full duration-300 hover:gap-8 hover:bg-transparent hover:bg-brandLight hover:text-brand;
 }
 
 #gform_wrapper_2 .ginput_container_select {
@@ -46,6 +46,6 @@ label.gfield_label {
 }
 
 .colour-chart {
-    @apply cursor-pointer bg-[#D7C7B0] uppercase border border-transparent text-brandDark text-sm md:text-lg py-6 font-light px-10 flex items-center justify-center gap-4 tracking-[0.2em] w-full duration-300 hover:gap-8;
+    @apply cursor-pointer bg-[#D7C7B0] uppercase border border-transparent text-brandDark text-sm md:text-lg py-6 font-light px-10 flex items-center justify-center gap-4 tracking-[0.2em] w-full duration-300 hover:bg-white hover:border-brand;
 }
 

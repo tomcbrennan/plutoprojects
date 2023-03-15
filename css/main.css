@@ -39,6 +39,23 @@ main {
 	@apply translate-x-0 opacity-100;
 }
 
+.menuIsOpen .hamburger {
+	@apply opacity-0;
+}
+
+.menuIsOpen .cross {
+	@apply opacity-100;
+}
+
+.menuIsOpen .menu-item {
+	animation: fade-in-right 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.4s both;
+}
+
+.menuIsOpen .menu-socials {
+	animation: fade-in-bottom 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.7s both;
+}
+
+
 .project-gallery {
 	@apply grid grid-cols-2 gap-4 w-full;
 }
@@ -78,4 +95,31 @@ main {
 	100% {
 	  opacity: 1;
 	}
-  }
+}
+
+@keyframes fade-in-right {
+	0% {
+	  -webkit-transform: translateX(50px);
+			  transform: translateX(50px);
+	  opacity: 0;
+	}
+	100% {
+	  -webkit-transform: translateX(0);
+			  transform: translateX(0);
+	  opacity: 1;
+	}
+}
+
+@keyframes fade-in-bottom {
+	0% {
+	  -webkit-transform: translateY(50px);
+			  transform: translateY(50px);
+	  opacity: 0;
+	}
+	100% {
+	  -webkit-transform: translateY(0);
+			  transform: translateY(0);
+	  opacity: 1;
+	}
+}
+  

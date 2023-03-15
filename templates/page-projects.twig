@@ -2,7 +2,7 @@
 
 {% block hero %}
     <section class="container">
-        <div class="flex flex-col items-center text-center gap-10 md:gap-20 pt-32">
+        <div class="flex flex-col items-center text-center gap-6 md:gap-8 pt-32">
             <h1 class="supertitle">{{ post.title }}</h1>
             <h2 class="is-h6 text-brand">{{ post.banner_excerpt }}</h2>
             <h3 class="supertitle opacity-20 text-bodyDark">Home / {{ post.title }}</h2>
@@ -11,7 +11,7 @@
 {% endblock %}
 
 {% block content %}
-    <section class="container mt-8 md:mt-16">
+    <section class="container mt-8">
         {% if projects %}
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
                 {% for project in projects %}

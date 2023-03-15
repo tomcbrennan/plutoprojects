@@ -193,6 +193,8 @@ document.addEventListener('DOMContentLoaded', () => {
 		})
 	}
 
+	// ANIMATE LINE BASED ON SCROLL POSITION AND WIDTH FROM RIGHT OF SCREEN
+
 	if (document.querySelector('.line-right') && window.innerWidth > 768) {
 		const lineRightElements = document.querySelectorAll('.line-right');
 	
