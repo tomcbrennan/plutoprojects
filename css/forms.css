@@ -17,6 +17,10 @@
     @apply mt-16;
 }
 
+#gform_submit_button_1 {
+    @apply bg-[#D7C7B0] text-brand hover:bg-brandLight w-2/3;
+}
+
 label.gfield_label {
     @apply font-normal text-brandDark opacity-50 tracking-widest;
 }
@@ -38,7 +42,7 @@ label.gfield_label {
 }
 
 .ginput_container_number {
-    @apply !h-[78px] !w-full !flex;
+    @apply !h-[74.5px] !w-full !flex;
 }
 
 .ginput_container_number input {

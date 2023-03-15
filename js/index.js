@@ -65,6 +65,10 @@ document.addEventListener('DOMContentLoaded', () => {
 			speed: 500,
 			slidesPerView: 4,
 			spaceBetween: 20,
+			// navigation: {
+			// 	nextEl: '.swiper-button-next',
+			// 	prevEl: '.swiper-button-prev',
+			// },
 		})
 
 		// TOGGLE ACTIVE IMAGE WHEN CLICKED
@@ -177,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
 					let currentWidth = 0
 
 					const animateLine = () => {
-						currentWidth += 2.5;
+						currentWidth += 6;
 						lineElement.style.width = `${currentWidth}px`
 
 						if (currentWidth >= width) {

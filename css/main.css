@@ -68,10 +68,6 @@ main {
 	@apply col-span-2;
 }
 
-/* [data-block] {
-	@apply relative py-12 lg:py-24 2xl:py-36;
-} */
-
 .footer-links a {
 	@apply w-fit relative after:duration-500 after:absolute after:left-0 after:bottom-[-2px] after:w-0 after:h-[1px] after:bg-brand;
 }

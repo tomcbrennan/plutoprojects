@@ -57,7 +57,9 @@
     </section>
     <section class="container">
         <div class="flex flex-col gap-20 items-center mt-20">
-            <h5 class="text-brand font-medium">You may also like</h5>
+            <div class="w-screen relative">
+                <h5 class="text-brand font-medium line-left mx-auto w-fit">You may also like</h5>
+            </div>
                 {% if related_products %}
                     <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
                         {% for product in related_products %}

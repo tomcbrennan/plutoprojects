@@ -15383,7 +15383,7 @@
             const width = boundingRect.left - 60;
             let currentWidth = 0;
             const animateLine = () => {
-              currentWidth += 2.5;
+              currentWidth += 6;
               lineElement.style.width = `${currentWidth}px`;
               if (currentWidth >= width) {
                 return;

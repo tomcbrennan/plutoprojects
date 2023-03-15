@@ -811,6 +811,9 @@ body {
     }
 }
 @media not all and (min-width: 768px) {
+    .max-md\:hidden {
+        display: none
+    }
     .max-md\:flex-col {
         flex-direction: column
     }

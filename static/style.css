@@ -1342,6 +1342,17 @@ h6,
 #gform_wrapper_1 {
   margin-top: 4rem;
 }
+#gform_submit_button_1 {
+  width: 66.666667%;
+  --tw-bg-opacity: 1;
+  background-color: rgb(215 199 176 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(154 80 38 / var(--tw-text-opacity));
+}
+#gform_submit_button_1:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(245 241 235 / var(--tw-bg-opacity));
+}
 label.gfield_label {
   font-weight: 400;
   letter-spacing: 0.1em;
@@ -1416,7 +1427,7 @@ label.gfield_label {
 }
 .ginput_container_number {
   display: flex !important;
-  height: 78px !important;
+  height: 74.5px !important;
   width: 100% !important;
 }
 .ginput_container_number input {
@@ -1777,9 +1788,6 @@ main {
 .project-gallery .project-image:nth-child(3n+1) {
   grid-column: span 2 / span 2;
 }
-/* [data-block] {
-	@apply relative py-12 lg:py-24 2xl:py-36;
-} */
 .footer-links a {
   position: relative;
   width: -moz-fit-content;
@@ -2073,6 +2081,10 @@ main {
   }
 }
 @media not all and (min-width: 768px) {
+
+  .max-md\:hidden {
+    display: none;
+  }
 
   .max-md\:flex-col {
     flex-direction: column;
