@@ -1470,7 +1470,7 @@ label.gfield_label {
 @media (min-width: 768px) {
 
   .colour-chart {
-    font-size: 1.125rem;
+    font-size: 14px;
   }
 }
 .tabs {
@@ -2054,10 +2054,6 @@ main {
 }
 @media not all and (min-width: 1260px) {
 
-  .max-xl\:gap-12 {
-    gap: 3rem;
-  }
-
   .max-xl\:gap-6 {
     gap: 1.5rem;
   }
@@ -2082,10 +2078,6 @@ main {
 
   .max-lg\:flex-col {
     flex-direction: column;
-  }
-
-  .max-lg\:gap-6 {
-    gap: 1.5rem;
   }
 }
 @media not all and (min-width: 768px) {

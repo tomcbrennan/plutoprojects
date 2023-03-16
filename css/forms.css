@@ -50,6 +50,6 @@ label.gfield_label {
 }
 
 .colour-chart {
-    @apply cursor-pointer bg-[#D7C7B0] uppercase border border-transparent text-brandDark text-sm md:text-lg py-6 font-light px-10 flex items-center justify-center gap-4 tracking-[0.2em] w-full duration-300 hover:bg-white hover:border-brand;
+    @apply cursor-pointer bg-[#D7C7B0] uppercase border border-transparent text-brandDark text-sm md:text-base py-6 font-light px-10 flex items-center justify-center gap-4 tracking-[0.2em] w-full duration-300 hover:bg-white hover:border-brand;
 }
 
