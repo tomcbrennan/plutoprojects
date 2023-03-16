@@ -792,6 +792,9 @@ body {
     .max-xl\:gap-12 {
         gap: 3rem
     }
+    .max-xl\:gap-6 {
+        gap: 1.5rem
+    }
 }
 @media not all and (min-width: 1024px) {
     .max-lg\:order-2 {
@@ -808,6 +811,9 @@ body {
     }
     .max-lg\:flex-col {
         flex-direction: column
+    }
+    .max-lg\:gap-6 {
+        gap: 1.5rem
     }
 }
 @media not all and (min-width: 768px) {
@@ -833,6 +839,9 @@ body {
     }
     .max-sm\:flex-col-reverse {
         flex-direction: column-reverse
+    }
+    .max-sm\:gap-3 {
+        gap: 0.75rem
     }
 }
 @media (min-width: 640px) {
