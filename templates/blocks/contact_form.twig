@@ -15,9 +15,15 @@
             <div class="supertitle font-semibold">{{ options.address }}</div>
        </div>
        <div class="flex flex-col gap-3">
-            <a class="supertitle uppercase flex items-center gap-3 !text-sm" href="{{ options.instagram }}" target="_blank">{% include "icons/arrow-right-small.twig" %} Instagram</a>
-			<a class="supertitle uppercase flex items-center gap-3 !text-sm" href="{{ options.facebook }}" target="_blank">{% include "icons/arrow-right-small.twig" %} Facebook</a>
-			<a class="supertitle uppercase flex items-center gap-3 !text-sm" href="{{ options.linkedin }}" target="_blank">{% include "icons/arrow-right-small.twig" %} Linkedin</a>
+          {% if options.instagram %}
+               <a class="supertitle uppercase flex items-center gap-3 !text-sm" href="{{ options.instagram }}" target="_blank">{% include "icons/arrow-right-small.twig" %} Instagram</a>
+          {% endif %}
+          {% if options.facebook %}
+               <a class="supertitle uppercase flex items-center gap-3 !text-sm" href="{{ options.facebook }}" target="_blank">{% include "icons/arrow-right-small.twig" %} Facebook</a>
+          {% endif %}
+          {% if options.linkedin %}
+               <a class="supertitle uppercase flex items-center gap-3 !text-sm" href="{{ options.linkedin }}" target="_blank">{% include "icons/arrow-right-small.twig" %} Linkedin</a>
+          {% endif %}
        </div>
     </div>
     <div class="md:col-span-3 h-full w-full flex flex-col items-center gap-6 md:gap-10 py-20 md:py-40 px-6 md:px-12 lg:px-28">

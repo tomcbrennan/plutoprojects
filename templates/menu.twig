@@ -27,9 +27,15 @@
 			{% endfor %}
 		</div>
 		<div class="menu-socials flex items-center justify-between mt-auto uppercase font-light text-sm">
-			<a class="tracking-[0.15em] text-brand flex items-center gap-2 pb-1" href="{{ options.instagram }}" target="_blank">{% include "icons/arrow-right-small.twig" with { class: "max-sm:hidden" } %} Instagram</a>
-			<a class="tracking-[0.15em] text-brand flex items-center gap-2 pb-1" href="{{ options.facebook }}" target="_blank">{% include "icons/arrow-right-small.twig" with { class: "max-sm:hidden" } %} Facebook</a>
-			<a class="tracking-[0.15em] text-brand flex items-center gap-2 pb-1" href="{{ options.linkedin }}" target="_blank">{% include "icons/arrow-right-small.twig" with { class: "max-sm:hidden" } %} Linkedin</a>
+			{% if options.instagram %}
+				<a class="tracking-[0.15em] text-brand flex items-center gap-2 pb-1" href="{{ options.instagram }}" target="_blank">{% include "icons/arrow-right-small.twig" with { class: "max-sm:hidden" } %} Instagram</a>
+			{% endif %}
+			{% if options.facebook %}
+				<a class="tracking-[0.15em] text-brand flex items-center gap-2 pb-1" href="{{ options.facebook }}" target="_blank">{% include "icons/arrow-right-small.twig" with { class: "max-sm:hidden" } %} Facebook</a>
+			{% endif %}
+			{% if options.linkedin %}
+				<a class="tracking-[0.15em] text-brand flex items-center gap-2 pb-1" href="{{ options.linkedin }}" target="_blank">{% include "icons/arrow-right-small.twig" with { class: "max-sm:hidden" } %} Linkedin</a>
+			{% endif %}
 		</div>
 	</ul>
 {% endif %}

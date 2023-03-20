@@ -1,7 +1,7 @@
 <footer class="bg-white pb-6 pt-12">
-	<div class="container 2xl:mx-28 border-t border-t-footerGrey pt-12 max-lg:grid flex max-xl:gap-6 justify-between md:grid-cols-2">
+	<div class="container border-t border-t-footerGrey pt-12 max-lg:grid flex max-xl:gap-6 justify-between md:grid-cols-2">
 		<div>
-			{% include "icons/logo.twig" %}
+			{% include "icons/wordmark.twig" with { class: "w-64" } %}
 		</div>
 		<div class="footer-links flex flex-col gap-6">
 			<span class="text-brandDark uppercase font-bold tracking-wider">Contact</span>
@@ -14,9 +14,15 @@
 		<div class="footer-links flex flex-col gap-6">
 			<span class="text-brandDark uppercase font-bold tracking-wider">Stay in touch</span>
 			<div class="flex flex-col gap-2 text-footerGrey">
-				<a class="uppercase flex items-center gap-3" href="{{ options.instagram }}" target="_blank">{% include "icons/arrow-right-small.twig" %} Instagram</a>
-				<a class="uppercase flex items-center gap-3" href="{{ options.facebook }}" target="_blank">{% include "icons/arrow-right-small.twig" %} Facebook</a>
-				<a class="uppercase flex items-center gap-3" href="{{ options.linkedin }}" target="_blank">{% include "icons/arrow-right-small.twig" %} Linkedin</a>
+				{% if options.instagram %}
+					<a class="uppercase flex items-center gap-3" href="{{ options.instagram }}" target="_blank">{% include "icons/arrow-right-small.twig" %} Instagram</a>
+				{% endif %}
+				{% if options.facebook %}
+					<a class="uppercase flex items-center gap-3" href="{{ options.facebook }}" target="_blank">{% include "icons/arrow-right-small.twig" %} Facebook</a>
+				{% endif %}
+				{% if options.linkedin %}
+					<a class="uppercase flex items-center gap-3" href="{{ options.linkedin }}" target="_blank">{% include "icons/arrow-right-small.twig" %} Linkedin</a>
+				{% endif %}
 			</div>
 		</div>
 		<div class="footer-links flex flex-col gap-2 text-footerGrey">
@@ -25,7 +31,7 @@
 			{% endfor %}
 		</div>
 	</div>
-	<div class="max-2xl:container 2xl:mx-28 w-full container mt-12 flex gap-3 max-sm:flex-col sm:items-center justify-between">
+	<div class="container mt-12 flex gap-3 max-sm:flex-col sm:items-center justify-between">
 		<div class="flex max-sm:flex-col max-sm:gap-3 gap-6">
 			<p class="uppercase tracking-wider text-sm text-footerGrey opacity-50">&copy; {{ "now"|date("Y") }} PLUTO PROJECTS</p>
 			<a href="/sitemap_index.xml" target="_blank" class="uppercase tracking-wider text-sm text-footerGrey opacity-50">Sitemap</a>
