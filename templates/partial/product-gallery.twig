@@ -1,4 +1,4 @@
-<div data-animate-right class="w-full lg:w-1/2">
+<div data-animate-right class="w-full md:w-1/2">
     {% for first in post.meta('images')[0:1] %}
         <div class="featured relative mb-6">
             {% include 'partial/image.twig' with {
@@ -20,8 +20,6 @@
                 </div>
             {% endfor %}
         </div>
-        {# <div class="swiper-button-prev max-md:hidden"></div>
-        <div class="swiper-button-next max-md:hidden"></div> #}
         <div class="swiper-scrollbar !relative mt-10"></div>
     </div>
 </div>

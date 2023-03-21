@@ -151,11 +151,14 @@ class TomDotCom extends Timber\Site
             'posts_per_page' => -1,
         ]);
 
+		$current_post_id = get_the_ID();
+
         $context['related_products'] = Timber::get_posts([
             'post_type' => 'products',
             'post_status' => 'publish',
             'posts_per_page' => 4,
 			'order' => 'RAND',
+			'post__not_in' => [$current_post_id],
         ]);
 
         $context['benches'] = Timber::get_posts([
