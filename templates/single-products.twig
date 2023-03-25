@@ -26,7 +26,9 @@
                 <div class="w-full flex flex-col gap-8 pb-8">
                     <h3 class="supertitle">Pluto Projects</h3>
                     <h4 class="text-brand">{{ post.title }}</h4>
-                    <span class="supertitle font-bold">From ${{ post.price }}</span>
+                    {% if post.price %}
+                        <span class="supertitle font-bold">From ${{ post.price }}</span>
+                    {% endif %}
                     <div>
                         {% if post.description %}
                             {{ post.description | wpautop }}
