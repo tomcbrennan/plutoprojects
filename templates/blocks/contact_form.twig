@@ -6,23 +6,23 @@
             <p class="font-semibold text-lg">Director</p>
        </div>
        <div class="flex flex-col gap-3">
-            <a class="font-semibold flex items-center gap-3 duration-300 hover:gap-5 hover:text-brand" href="mailto:{{ options.email }}" target="_blank">{{ options.email }}{% include "icons/arrow-right-small.twig" %}</a>
+            <a class="font-semibold flex items-center gap-3 duration-300 text-bodyDark hover:gap-5 hover:text-brand" href="mailto:{{ options.email }}" target="_blank">{{ options.email }}{% include "icons/arrow-right-small.twig" %}</a>
        </div>
        <div class="flex flex-col gap-3">
-            <div class="font-semibold flex items-center gap-3">{{ options.phone }}</div>
+            <div class="font-semibold flex items-center gap-3 text-bodyDark">{{ options.phone }}</div>
        </div>
        <div class="flex flex-col gap-3">
-            <div class="font-semibold">{{ options.address }}</div>
+            <div class="font-semibold text-bodyDark">{{ options.address }}</div>
        </div>
        <div class="flex flex-col gap-3">
           {% if options.instagram %}
-               <a class="uppercase flex items-center gap-3 !text-sm" href="{{ options.instagram }}" target="_blank">{% include "icons/arrow-right-small.twig" %} Instagram</a>
+               <a class="uppercase flex items-center gap-3 !text-sm text-bodyDark" href="{{ options.instagram }}" target="_blank">{% include "icons/arrow-right-small.twig" %} Instagram</a>
           {% endif %}
           {% if options.facebook %}
-               <a class="uppercase flex items-center gap-3 !text-sm" href="{{ options.facebook }}" target="_blank">{% include "icons/arrow-right-small.twig" %} Facebook</a>
+               <a class="uppercase flex items-center gap-3 !text-sm text-bodyDark" href="{{ options.facebook }}" target="_blank">{% include "icons/arrow-right-small.twig" %} Facebook</a>
           {% endif %}
           {% if options.linkedin %}
-               <a class="uppercase flex items-center gap-3 !text-sm" href="{{ options.linkedin }}" target="_blank">{% include "icons/arrow-right-small.twig" %} Linkedin</a>
+               <a class="uppercase flex items-center gap-3 !text-sm text-bodyDark" href="{{ options.linkedin }}" target="_blank">{% include "icons/arrow-right-small.twig" %} Linkedin</a>
           {% endif %}
        </div>
     </div>
