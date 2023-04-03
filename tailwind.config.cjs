@@ -1,12 +1,6 @@
 module.exports = {
 	content: ['./*/*.php', './*.php', './templates/**/*.twig'],
 	theme: {
-		// container: {
-		// 	center: true,
-		// 	padding: {
-		// 		DEFAULT: '2rem',
-		// 	},
-		// },
 		fontSize: {
 			base: '14px',
 			sm: '12px',
