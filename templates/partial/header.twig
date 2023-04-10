@@ -1,6 +1,6 @@
 <header class="px-6 lg:px-12 transition-all duration-700 fixed top-0 left-0 w-full z-50 py-4 2xl:py-6 bg-brandLight bg-opacity-80">
 	<div data-navigation class="z-20 w-full flex items-center justify-between transition-all duration-300">
-		<a href="{{ site.url }}" rel="home">{% include 'icons/logo.twig' %}</a>
+		<a href="{{ site.url }}" rel="home" title="Pluto Projects">{% include 'icons/logo.twig' %}</a>
 		<nav class="flex" id="nav-main" role="navigation">
 			{% include 'menu.twig' with {
 				items: menu.get_items
