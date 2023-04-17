@@ -276,14 +276,13 @@ add_filter( 'gform_admin_pre_render', 'populate_gravity_form_dropdowns' );
 function populate_gravity_form_dropdowns( $form ) {
 
     if ( $form['id'] == 2 ) {
-
-        // Get the current post ID
         $post_id = get_the_ID();
 
         $colours = get_field( 'colours', $post_id );
         $sizes = get_field( 'sizes', $post_id );
 		$add_finishing_caps = get_field( 'add_finishing_caps', $post_id );
 		$finishing_caps = get_field( 'finishing_caps', $post_id );
+		$show_colour_chart = get_field( 'show_colour_chart', $post_id );
 
         $colour_choices = array();
 		if ( is_array( $colours ) ) {
@@ -313,18 +312,26 @@ function populate_gravity_form_dropdowns( $form ) {
 		}
 
 		$form = populate_gravity_form_field_choices( $form, 9, $colour_choices );
-        $form = populate_gravity_form_field_choices( $form, 10, $size_choices );
-		
-		if ( $add_finishing_caps == 'yes' ) {
-            $form = populate_gravity_form_field_choices( $form, 17, $finishing_cap_choices );
-        } else {
-            foreach ( $form['fields'] as $key => $field ) {
-                if ( $field->id == 17 ) {
-                    unset( $form['fields'][ $key ] );
-                    break;
-                }
-            }
-        }
+		$form = populate_gravity_form_field_choices( $form, 10, $size_choices );
+
+		if ( $add_finishing_caps == 'no' ) {
+			foreach ( $form['fields'] as $key => $field ) {
+				if ( $field->id == 18 ) {
+					unset( $form['fields'][ $key ] );
+				}
+			}
+		} else {
+			$form = populate_gravity_form_field_choices( $form, 18, $finishing_cap_choices );
+		}
+
+		if ( $show_colour_chart == 'no' ) {
+
+			foreach ( $form['fields'] as $key => $field ) {
+				if ( $field->id == 11 ) {
+					unset( $form['fields'][ $key ] );
+				}
+			}
+		}
 
     }
 
@@ -337,36 +344,6 @@ function populate_gravity_form_field_choices( $form, $field_id, $choices ) {
             $field->choices = $choices;
         }
     }
-    return $form;
-}
-
-add_filter( 'gform_pre_render', 'hide_chart_button_field' );
-
-function hide_chart_button_field( $form ) {
-
-    // Get the current post ID
-    $post_id = get_the_ID();
-
-    // Get the custom field value for the show_colour_chart field
-    $show_colour_chart = get_field( 'show_colour_chart', $post_id );
-
-    // Check if the custom field value is "no"
-    if ( $show_colour_chart == 'no' ) {
-
-        // Loop through all fields in the form
-        foreach ( $form['fields'] as &$field ) {
-
-            // Check if this is the field you want to hide
-            if ( $field->cssClass == 'chart-button' ) {
-
-                // Hide the field
-                $field->cssClass .= ' hidden';
-
-                break; // Exit the loop since we found the field we were looking for
-            }
-        }
-    }
-
     return $form;
 }
 
