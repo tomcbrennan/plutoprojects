@@ -265,25 +265,26 @@ class TomDotCom extends Timber\Site
 	
 }
 
-// ADD CUSTOM FIELD VALUES FOR COLOURS AND SIZES TO DROPDOWNS INSIDE PRODUCTS
+// ADD CUSTOM FIELD VALUES FOR COLOURS, SIZES AND FINISHING CAPS TO DROPDOWNS INSIDE PRODUCTS
 
 add_filter( 'gform_pre_render', 'populate_gravity_form_dropdowns' );
 add_filter( 'gform_pre_validation', 'populate_gravity_form_dropdowns' );
 add_filter( 'gform_pre_submission_filter', 'populate_gravity_form_dropdowns' );
 add_filter( 'gform_admin_pre_render', 'populate_gravity_form_dropdowns' );
 
+
 function populate_gravity_form_dropdowns( $form ) {
 
-    // Check if this is the form you want to populate
-    if ( $form['id'] == 2 ) { // Replace 2 with the ID of your Gravity Form
+    if ( $form['id'] == 2 ) {
 
         // Get the current post ID
         $post_id = get_the_ID();
 
-        // Get the custom field values for the colors repeater field
         $colours = get_field( 'colours', $post_id );
+        $sizes = get_field( 'sizes', $post_id );
+		$add_finishing_caps = get_field( 'add_finishing_caps', $post_id );
+		$finishing_caps = get_field( 'finishing_caps', $post_id );
 
-        // Populate the colors dropdown field
         $colour_choices = array();
 		if ( is_array( $colours ) ) {
 			foreach ( $colours as $colour ) {
@@ -292,12 +293,7 @@ function populate_gravity_form_dropdowns( $form ) {
 				$colour_choices[] = array( 'text' => $colour_label, 'value' => $colour_value );
 			}
 		}
-        $form = populate_gravity_form_field_choices( $form, 9, $colour_choices );
 
-        // Get the custom field values for the sizes repeater field
-        $sizes = get_field( 'sizes', $post_id );
-
-        // Populate the sizes dropdown field
         $size_choices = array();
         if ( is_array( $sizes ) ) {
             foreach ( $sizes as $size ) {
@@ -306,7 +302,29 @@ function populate_gravity_form_dropdowns( $form ) {
                 $size_choices[] = array( 'text' => $size_label, 'value' => $size_value );
             }
         }
+
+		$finishing_cap_choices = array();
+		if ( is_array( $finishing_caps ) ) {
+			foreach ( $finishing_caps as $finishing_cap ) {
+				$finishing_cap_label = $finishing_cap['finishing_cap'];
+				$finishing_cap_value = $finishing_cap['finishing_cap'];
+				$finishing_cap_choices[] = array( 'text' => $finishing_cap_label, 'value' => $finishing_cap_value );
+			}
+		}
+
+		$form = populate_gravity_form_field_choices( $form, 9, $colour_choices );
         $form = populate_gravity_form_field_choices( $form, 10, $size_choices );
+		
+		if ( $add_finishing_caps == 'yes' ) {
+            $form = populate_gravity_form_field_choices( $form, 17, $finishing_cap_choices );
+        } else {
+            foreach ( $form['fields'] as $key => $field ) {
+                if ( $field->id == 17 ) {
+                    unset( $form['fields'][ $key ] );
+                    break;
+                }
+            }
+        }
 
     }
 
@@ -321,5 +339,37 @@ function populate_gravity_form_field_choices( $form, $field_id, $choices ) {
     }
     return $form;
 }
+
+add_filter( 'gform_pre_render', 'hide_chart_button_field' );
+
+function hide_chart_button_field( $form ) {
+
+    // Get the current post ID
+    $post_id = get_the_ID();
+
+    // Get the custom field value for the show_colour_chart field
+    $show_colour_chart = get_field( 'show_colour_chart', $post_id );
+
+    // Check if the custom field value is "no"
+    if ( $show_colour_chart == 'no' ) {
+
+        // Loop through all fields in the form
+        foreach ( $form['fields'] as &$field ) {
+
+            // Check if this is the field you want to hide
+            if ( $field->cssClass == 'chart-button' ) {
+
+                // Hide the field
+                $field->cssClass .= ' hidden';
+
+                break; // Exit the loop since we found the field we were looking for
+            }
+        }
+    }
+
+    return $form;
+}
+
+
 
 new TomDotCom();
